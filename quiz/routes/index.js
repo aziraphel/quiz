@@ -5,6 +5,7 @@ var quizController = require('../controllers/quiz_controller');
 var creditsController = require('../controllers/credits_controller');
 var commentController = require('../controllers/comment_controller');
 var sessionController = require('../controllers/session_controller');
+var statsController = require('../controllers/stats_controller');
 
 /* GET home page. */
 router.get('/', function (req, res) {
@@ -37,7 +38,12 @@ router.get('/quizes/:quizId(\\d+)/comments/:commentId(\\d+)/publish',	sessionCon
 router.get('/quizes/:quizId(\\d+)/comments/:commentId(\\d+)/unpublish',	sessionController.loginRequired, commentController.unpublish);
 router.delete('/quizes/:quizId(\\d+)/comments/:commentId(\\d+)',	sessionController.loginRequired, commentController.destroy);
 
+//Opcional final 
+router.get('/quizes/statistics',			statsController.getstats);
+
+//Definicion de rutas custom
 router.get('/author', 						creditsController.credits);
+
 
 /*  //Forma alternativa sin usar controllers
 router.get('/author', function (req, res, next) {
