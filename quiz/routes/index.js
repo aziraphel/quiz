@@ -13,13 +13,13 @@ router.get('/', function (req, res) {
 });
 
 // Autoload de comandos con :quizId y commentId
-router.param('quizId',quizController.load);
-router.param('commentId',commentController.load); 
+router.param('quizId',		quizController.load);
+router.param('commentId',	commentController.load); 
 
 //Definicion de rutas de sesion
-router.get('/login',sessionController.new);
-router.post('/login',sessionController.create);
-router.get('/logout',sessionController.destroy);
+router.get('/login',	sessionController.new);
+router.post('/login',	sessionController.create);
+router.get('/logout',	sessionController.destroy);
 
 //definicion de rutas de /quizes
 router.get('/quizes', 						quizController.index);

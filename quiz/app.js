@@ -24,7 +24,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser('Quiz 2015'));
-//app.use(session({secret: 'Quiz 2015', cookie:{maxAge:120000}}));
+//app.use(session({secret: 'Quiz 2015', cookie: { maxAge: 1200000 }, resave: true, saveUninitialized: true }));
 app.use(session({secret: 'Quiz 2015'}));
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -41,8 +41,8 @@ app.use(function(req, res, next) {
 });
 
 
-app.use(function(req,res,next){
-  sessionController.checkTimeout(req,res);
+app.use(function(req, res, next){
+  sessionController.checkTimeout(req, res);
   next();
 });
 

@@ -50,7 +50,7 @@ exports.checkTimeout = function(req,res){
     if(req.session){
         if(req.session.lastAct){
             var currTime = new Date().getTime();
-            if((currTime-req.session.lastAct)>10000){
+            if((currTime-req.session.lastAct)>1200000){
                 delete req.session.user;
             }
             else {
